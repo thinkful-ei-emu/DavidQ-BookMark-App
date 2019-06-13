@@ -8,7 +8,9 @@ const DOM =(function(){
   function handleExpandBookMark(){
     //event handle for bookmark expansion
     $('.js-list').on('click','.js-list-item',(e)=>{
-      collection.focused = e.target;
+      collection.focused = $(e.currentTarget).data('book-id');
+      console.log(collection.focused);
+      render();
       $(e.target).find('article').toggleClass('hidden');
     });
   }
@@ -23,14 +25,25 @@ const DOM =(function(){
     $('.js-list').html(html);
   }
   function createHTML(book){
-    return ` <li class="js-list-item row">
+    if(book.id === collection.focused){
+      return ` <li class="js-list-item row" data-book-id="${book.id}">
+      <div class="col-12">
+    <span>${book.name}<button class="js-remove">remove</button></span>
+      <p>rating:${book.rating}</p>
+      <article>Description:<br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac enim facilisis, condimentum augue at, aliquet ex. Etiam at velit eu lectus sagittis ultrices eu sit amet dolor. Integer hendrerit bibendum tortor blandit fringilla.</p></article>
+      <a href="#">link to book website</a>
+      </div>
+    </li>`;
+    }else{return ` <li class="js-list-item row" data-book-id="${book.id}">
     <div class="col-12">
   <span>${book.name}<button class="js-remove">remove</button></span>
-    <p><rating:5></rating:${book.rating}></p>
+    <p>rating:${book.rating}</p>
     <article class="hidden">Description:<br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac enim facilisis, condimentum augue at, aliquet ex. Etiam at velit eu lectus sagittis ultrices eu sit amet dolor. Integer hendrerit bibendum tortor blandit fringilla.</p></article>
     <a href="#">link to book website</a>
     </div>
   </li>`;
+
+    }
 
   }
   return{
