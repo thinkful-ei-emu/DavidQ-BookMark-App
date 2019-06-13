@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/grid/simple-grid.min.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <title>Book Mark</title>
+</head>
+<body>
+  <main class="container">
+    <div class="row">
+      <div class="col-6">
+        <label>Filter By</label>
+        <select>
+          <option>Rating</option>
+          <option>Name</option>
+        </select>
+      </div>
+      <button class="js-addBtn col-3">+</button>
+    </div>
+ <ul class="js-list">
+    <li class="js-list-item row">
+      <div class="col-12">
+      <strong>name of book<button class="js-remove">remove</button></strong>
+      <p><rating:5></rating:5></p>
+      <article class="hidden">Description:<br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac enim facilisis, condimentum augue at, aliquet ex. Etiam at velit eu lectus sagittis ultrices eu sit amet dolor. Integer hendrerit bibendum tortor blandit fringilla.</p></article>
+      <a href="#">link to book website</a>
+      </div>
+    </li>
+ </ul>
+ </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="scripts/API.js"></script>
+<script src="scripts/book.js"></script>
+<script src="scripts/DOM.js"></script>
+<script src="scripts/collection.js"></script>
+<script src="scripts/index.js"></script>
+</html>
