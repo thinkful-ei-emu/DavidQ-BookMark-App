@@ -10,14 +10,45 @@
 </head>
 <body>
   <main class="container">
+    <!-----------MODAL-------------------------------------------->
+    <div class = "modal" > 
+    <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Add a Book</h2>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div>
+                <label for="titleInput">Title</label><br>
+                <input type="text" id="titleInput" name="titleInput">
+              </div>
+              <div>
+                <label for="urlInput">Url</label><br>
+                <input type="url" id="urlInput" name="urlInput">
+              </div>
+              <div>
+                  <label for="infoInput">Description:</label><br>
+                  <input type="text" id="infoInput" name="infoInput">
+                </div>
+                <button>Cancel</button><button>Submit</button>
+            </form>
+          </div>
+        </div>
+        </div>
+        <!--- END MODAL------------------------------------->
     <div class="row">
-      <div class="col-6">
-        <label>Filter By</label>
-        <select>
-          <option>Rating</option>
-          <option>Name</option>
+      <form class="col-6">
+        <label for="filter">Filter By</label>
+        <select name="filter" id="filter">
+          <option>All</option>
+          <option>1 stars</option>
+          <option>2 stars</option>
+          <option>3 stars</option>
+          <option>4 stars</option>
+          <option>5 stars</option>
         </select>
-      </div>
+      </form>
       <button class="js-addBtn col-3">+</button>
     </div>
  <ul class="js-list">
