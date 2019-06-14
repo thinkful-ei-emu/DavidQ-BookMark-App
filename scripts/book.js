@@ -4,12 +4,12 @@
 // define book class
 
 class book{
-  constructor(Name,Rating,URL,Descript='',Id=cuid()){
-    this.id=Id;//currently set to random number for testing purpose
-    this.title = Name;
-    this.url = URL;
-    this.rating = Rating;
-    this.desc = Descript;
+  constructor(obj={id:cuid(),title:'Mobey Dick',url:'http://www.google.com',rating:5}){
+    this.id=obj.id;//currently set to random number for testing purpose
+    this.title = obj.title;
+    this.url = obj.url;
+    this.rating = obj.rating;
+    this.desc = obj.desc;
   }
   setRating(newRating){
     this.rating = newRating;
