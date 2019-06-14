@@ -1,6 +1,9 @@
 .hidden{
   display: none;
 }
+p{
+  margin:1px;
+}
 li{
   border: 1px solid black;
   border-radius: 5px;
@@ -14,6 +17,10 @@ ul{
   float:right;
 }
 /* The Modal (background) */
+.js-inputForm{
+  width:300px;
+  margin: auto;
+}
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */

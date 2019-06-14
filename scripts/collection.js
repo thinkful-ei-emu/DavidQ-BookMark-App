@@ -4,7 +4,7 @@
 'use strict';
 
 const collection = (function(){
-  const books =[new book('Mobey Dick',5),new book('Stuwart little',4)];//todo currently hard coded
+  const books =[new book('Mobey Dick',5,'http://www.google.com'),new book('Stuwart little',4,'#')];//todo currently hard coded
   let focused = null;//set to the book that has focus
   let adding = false;
   /**
@@ -19,14 +19,20 @@ const collection = (function(){
   /**
    * @param {string} ID 
    */
-  function DeleteBook(ID){
+  function deleteBook(ID){
     //given an id, cleanly remove that book from list
     this.books.splice(this.findByID(ID),1);
+  }
+  function addBook(Title,Rating,Url){
+    //todo call api here
+    this.books.push(new book(Title,Rating,Url));
+
   }
   return{
     books,
     focused,
-    DeleteBook,
+    deleteBook,
+    addBook,
     findByID,
     adding,
   };
