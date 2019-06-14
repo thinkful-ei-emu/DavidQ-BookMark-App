@@ -23,18 +23,18 @@
                 <label class="col-3" for="titleInput">Title</label>
                 <input class="col-12" type="text" id="titleInput" name="title" form="inputForm" required>
               </div>
-              <div>
+              <div class="row">
                 <label class="col-3" for="urlInput">Url</label>
                 <input class="col-12" type="url" id="urlInput" name="url" placeholder="http://" required>
               </div>
-              <div>
+              <div class="row">
                   <label class="col-3" for="infoInput">Description:</label>
                   <textarea class="col-12" form="inputForm" rows="3" id="infoInput" name="desc"></textarea>
               </div>
-              <div>
+              <div class="row">
                   <label class="col-3" for="rateInput">Rating:</label>
-                  <input class="col-9" id="rateInput" name="rating" type="range" step="1" max="5" min="1" value="4" onchange="$('#starOutput').val(this.value +'&#9733;');"/>
-                  <output class="col-3" for="rateInput" id="starOutput">4&#9733;</output>
+                  <input class="col-7" id="rateInput" name="rating" type="range" step="1" max="5" min="1" value="4" onchange="$('#starOutput').val(this.value +'&#9733;');"/>
+                  <output class="col-2" for="rateInput" id="starOutput">4&#9733;</output>
               </div>
               <div class="row">
                 <button class="col-5-sm" type="reset">Cancel</button><button class="col-5-sm" type="submit">Submit</button>
