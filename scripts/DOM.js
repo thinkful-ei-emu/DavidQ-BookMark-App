@@ -55,7 +55,10 @@ const DOM =(function(){
   }
   function handleFilter(){
     $('#filter').on('change',(e)=>{
-      alert('filter changed to: ' + e.target.value);
+      collection.minStars =  e.target.value;
+      collection.toggleHidden();
+      render();
+      //alert('filter changed to: ' + e.target.value);
     });
 
   }
@@ -87,7 +90,7 @@ const DOM =(function(){
     </div>`;
     }else{
       return ` <div class="js-list-item col-12" data-book-id="${book.id}">
-    <div class=""><span>${book.title}<button class="js-remove">remove</button></span>
+    <div class="row"><p class="col-6">${book.title}</p><p class="col-6">${book.rating}</p>
     <!--<p>rating:${book.rating}
     <a href="${book.url}"> Visit Website</a>-->
     </div>

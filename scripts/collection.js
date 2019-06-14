@@ -24,6 +24,15 @@ const collection = (function(){
     //given an id, cleanly remove that book from list
     this.books.splice(this.findByID(ID),1);
   }
+  function toggleHidden(){
+    books.forEach(book=>{
+      if(book.rating < this.minStars){
+        book.hidden = true;
+      }else{
+        book.hidden = false;
+      }
+    });
+  }
   function addBook(obj){
     if(this.books.find((b)=>b.id === obj.id)=== undefined){ //check if book is already there
       this.books.push(new book(obj));
@@ -32,6 +41,8 @@ const collection = (function(){
   }
   return{
     books,
+    toggleHidden,
+    minStars,
     focused,
     deleteBook,
     addBook,
