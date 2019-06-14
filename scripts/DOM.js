@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* global collection */
+/* global collection, API */
 /* eslint-env jquery */
 'use strict';
 /* This module deals with all DOM manipulations and event handles */
@@ -30,12 +30,11 @@ const DOM =(function(){
     $('.js-inputForm').submit((e)=>{
       e.preventDefault();
       let data = new FormData(document.getElementById('inputForm'));
-      let inputs=[];
+      API.addNewBook(data);
+    /*       let inputs=[];
       for(let x of data.entries()){inputs.push(x);}
       console.log(inputs);
-      collection.addBook(inputs[0][1],inputs[3][1],inputs[1][1]);
-      //todo clear all input fields
-      //$('.modal').toggle();
+      collection.addBook({inputs[0][1],inputs[3][1],inputs[1][1]}); */
       $('.js-inputForm')[0].reset();
       render();
       console.log('form Submited');

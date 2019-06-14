@@ -24,8 +24,7 @@ const collection = (function(){
     this.books.splice(this.findByID(ID),1);
   }
   function addBook(obj){
-    //todo call api here
-    this.books.push(new book(obj.title,obj.rating,obj.url));
+    this.books.push(new book(obj));
 
   }
   return{
