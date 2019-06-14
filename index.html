@@ -33,7 +33,8 @@
               </div>
               <div>
                   <label class="col-3" for="rateInput">Rating:</label>
-                  <input class="col-12" id="rateInput" name="rating" type="range" step="1" max="5" min="1" value="4"/>
+                  <input class="col-9" id="rateInput" name="rating" type="range" step="1" max="5" min="1" value="4" onchange="$('#starOutput').val(this.value +'&#9733;');"/>
+                  <output class="col-3" for="rateInput" id="starOutput">4&#9733;</output>
               </div>
               <div class="row">
                 <button class="col-5-sm" type="reset">Cancel</button><button class="col-5-sm" type="submit">Submit</button>
@@ -43,7 +44,7 @@
         </div>
         </div>
         <!--- END MODAL------------------------------------->
-    <div class="row" role="application">
+    <header class="row" role="application">
       <form class="col-9-sm filter">
         <label for="filter">Filter By:</label>
         <select name="filter" id="filter">
@@ -56,7 +57,7 @@
         </select> 
       </form>
       <button class="js-addBtn col-3-sm" aria-haspopup="true">Add a book</button>
-    </div>
+    </header>
  <div class="js-list row">
    <div id="placeHolder" class="col-12 error" style="text-align: center;margin-top:25%">Looking For Books...</div>
  </div>
