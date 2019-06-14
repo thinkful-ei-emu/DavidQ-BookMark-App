@@ -10,6 +10,7 @@ class book{
     this.url = obj.url;
     this.rating = obj.rating;
     this.desc = obj.desc;
+    this.hidden =false;
   }
   setRating(newRating){
     this.rating = newRating;

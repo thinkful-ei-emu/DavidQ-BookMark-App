@@ -4,17 +4,22 @@
 p{
   margin:1px;
 }
-li{
+.js-list-item{
   border: 1px solid black;
+  display: inline-block;
+  padding: 20px;
   border-radius: 5px;
   list-style: none;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
+  margin-right:2px;
 }
 ul{
   padding: 0%;
 }
 .js-remove{
   float:right;
+  background-color: white;
+  box-shadow: white;
 }
 /* The Modal (background) */
 .js-inputForm{

@@ -21,11 +21,11 @@
             <form class="js-inputForm" id="inputForm" autocomplete="off">
               <div>
                 <label for="title">Title</label><br>
-                <input type="text" id="titleInput" name="title" form="inputForm">
+                <input type="text" id="titleInput" name="title" form="inputForm" required min="1">
               </div>
               <div>
                 <label for="url">Url</label><br>
-                <input type="url" id="urlInput" name="url">
+                <input type="url" id="urlInput" name="url" required min="5">
               </div>
               <div>
                   <label for="desc">Description:</label><br>
@@ -47,18 +47,18 @@
       <form class="col-6">
         <label for="filter">Filter By</label>
         <select name="filter" id="filter">
-          <option>All</option>
-          <option>1 stars</option>
-          <option>2 stars</option>
-          <option>3 stars</option>
-          <option>4 stars</option>
-          <option>5 stars</option>
+          <option value="0">All</option>
+          <option value="1">1 stars</option>
+          <option value="2">2 stars</option>
+          <option value="3">3 stars</option>
+          <option value="4">4 stars</option>
+          <option value="5">5 stars</option>
         </select>
       </form>
-      <button class="js-addBtn col-3">+</button>
+      <button class="js-addBtn col-6">Add a book</button>
     </div>
- <ul class="js-list">
-    <li class="js-list-item row">
+ <div class="js-list row">
+    <li class="js-list-item">
       <div class="col-12">
       <strong>name of book<button class="js-remove">remove</button></strong>
       <p><rating:5></rating:5></p>
@@ -66,7 +66,7 @@
       <a href="#">link to book website</a>
       </div>
     </li>
- </ul>
+  </div>
  </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>

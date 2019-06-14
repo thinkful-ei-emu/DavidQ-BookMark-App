@@ -7,6 +7,7 @@ const collection = (function(){
   const books =[];
   let focused = null;//set to the book that has focus
   let adding = false;
+  let minStars = 0;
   /**
    * 
    * @param {string} ID
@@ -24,7 +25,9 @@ const collection = (function(){
     this.books.splice(this.findByID(ID),1);
   }
   function addBook(obj){
-    this.books.push(new book(obj));
+    if(this.books.find((b)=>b.id === obj.id)=== undefined){ //check if book is already there
+      this.books.push(new book(obj));
+    }
 
   }
   return{

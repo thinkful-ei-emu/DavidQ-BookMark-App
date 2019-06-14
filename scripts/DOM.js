@@ -31,7 +31,7 @@ const DOM =(function(){
       e.preventDefault();
       let data = new FormData(document.getElementById('inputForm'));
       API.addNewBook(data);
-    /*       let inputs=[];
+      /*     let inputs=[];
       for(let x of data.entries()){inputs.push(x);}
       console.log(inputs);
       collection.addBook({inputs[0][1],inputs[3][1],inputs[1][1]}); */
@@ -49,12 +49,18 @@ const DOM =(function(){
     //event for if the removed button is pressed
     $('.js-list').on('click','.js-remove',(e)=>{
       e.stopPropagation();
-      let bookmark = $(e.currentTarget).closest('li').data('book-id');//id of book to remove
-      collection.deleteBook(bookmark);//prob replacing with api.delete
-      render();
+      let bookmark = $(e.currentTarget).closest('.js-list-item').data('book-id');//id of book to remove
+      API.deleteBook(bookmark);
     });
   }
+  function handleFilter(){
+    $('#filter').on('change',(e)=>{
+      alert('filter changed to: ' + e.target.value);
+    });
+
+  }
   function hookUpEvents(){
+    handleFilter();
     handleRemoveBtn();
     handleExpandBookMark();
     handleFormSubmit();
@@ -67,21 +73,23 @@ const DOM =(function(){
     $('.js-list').html(html);
   }
   function createHTML(book){
-    if(book.id === collection.focused){
-      return ` <li class="js-list-item row" data-book-id="${book.id}">
+    if(book.hidden){
+      return '';
+    
+    }else if(book.id === collection.focused){
+      return ` <div class="js-list-item col-12" data-book-id="${book.id}">
       <div class="col-12">
     <span>${book.title}<button class="js-remove">remove</button></span>
       <p>rating:${book.rating}</p>
-      <article>Description:<br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac enim facilisis, condimentum augue at, aliquet ex. Etiam at velit eu lectus sagittis ultrices eu sit amet dolor. Integer hendrerit bibendum tortor blandit fringilla.</p></article>
-      <a href="#">link to book website</a>
+      <article><p>${book.desc}</p></article>
+      <a href="${book.url}">Visit website</a>
       </div>
-    </li>`;
+    </div>`;
     }else{
-      return ` <li class="js-list-item row" data-book-id="${book.id}">
-    <div class="col-12"><span>${book.title}<button class="js-remove">remove</button></span>
-    <p>rating:${book.rating}</p>
-    <article class="hidden">Description:<br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac enim facilisis, condimentum augue at, aliquet ex. Etiam at velit eu lectus sagittis ultrices eu sit amet dolor. Integer hendrerit bibendum tortor blandit fringilla.</p></article>
-    <a href="#">link to book website</a>
+      return ` <div class="js-list-item col-12" data-book-id="${book.id}">
+    <div class=""><span>${book.title}<button class="js-remove">remove</button></span>
+    <!--<p>rating:${book.rating}
+    <a href="${book.url}"> Visit Website</a>-->
     </div>
   </li>`;
 
