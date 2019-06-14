@@ -37,13 +37,13 @@
 #Keep your Data out of the DOM
 
 #No direct DOM manipulation in your event handlers!
-Follow the React-ful design pattern - change your state, re-render your component
-Use semantic HTML
+#Follow the React-ful design pattern - change your state, re-render your component
+#Use semantic HTML
 
-Use responsive design
+#Use responsive design
 
-Visually and functionally solid in viewports for mobile and desktop
-Follow a11y best practices
+#Visually and functionally solid in viewports for mobile and desktop
+#Follow a11y best practices
 
 Refer back to the lessons on accessibility, forms
 

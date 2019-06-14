@@ -3,23 +3,36 @@ html,body{
   margin:0;
   padding: 0;
 }
+body{
+  background-color: aliceblue
+}
+nav{
+  background-color: #888;
+}
 .hidden{
   display: none;
 }
 p{
   margin:1px;
 }
+.js-addBtn{
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  margin: auto;
+}
+.js-list{
+  margin-top:10px;
+}
 .js-list-item{
   border: 1px solid black;
   display: inline-block;
-  padding: 20px;
   border-radius: 5px;
-  list-style: none;
-  margin-bottom: 10px;
-  margin-right:2px;
+  background-color: #fefefe
 }
 .filter{
-  display: inline;
+  display: inline-block;
 }
 .error{
   border: red solid 2px;
@@ -36,11 +49,15 @@ ul{
 .js-remove{
   float:right;
   background-color: white;
-  box-shadow: white;
+ 
+  border:none
+}
+.js-remove:hover{
+  background-color: mediumvioletred;
+  color:white; 
 }
 .js-inputForm{
-  width:300px;
-  margin: auto;
+
 }
 /* The Modal (background) */
 
@@ -59,10 +76,10 @@ ul{
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto; /* 15% from the top and centered*/
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 100%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
@@ -87,7 +104,9 @@ ul{
 }
 
 /* Modal Body */
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 2px 16px;
+}
 
 /* Modal Footer */
 .modal-footer {
@@ -103,7 +122,7 @@ ul{
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 80%;
+  width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
   animation-duration: 0.4s

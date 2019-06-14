@@ -12,6 +12,13 @@ class book{
     this.desc = obj.desc;
     this.hidden = this.rating < collection.minStars;
   }
+  getStars(){
+    let result = [];
+    for(let x = 1; x <= this.rating; x++){
+      result.push('&#9733;');
+    }
+    return result.join(''); 
+  }
   setRating(newRating){
     this.rating = newRating;
   }

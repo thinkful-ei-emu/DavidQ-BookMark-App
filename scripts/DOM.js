@@ -111,18 +111,18 @@ const DOM =(function(){
       return ` <div class="js-list-item col-12" data-book-id="${book.id}">
       <div class="col-12">
     <span>${book.title}<button class="js-remove">remove</button></span>
-      <p>rating:${book.rating}</p>
+      <p>rating:${book.getStars()}</p>
       <article><p>${book.desc}</p></article>
       <a href="${book.url}">Visit website</a>
       </div>
     </div>`;
     }else{
       return ` <div class="js-list-item col-12" data-book-id="${book.id}">
-    <div class="row"><p class="col-6">${book.title}</p><p class="col-6">${book.rating}</p>
-    <!--<p>rating:${book.rating}
+    <div class="row"><p class="col-6-sm">${book.title}</p><p class="col-6-sm">${book.getStars()}</p>
+    <!--<p>rating:${book.getStars}
     <a href="${book.url}"> Visit Website</a>-->
     </div>
-  </li>`;
+  </li>`;//this is collapsed
 
     }
 
