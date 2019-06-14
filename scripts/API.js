@@ -20,6 +20,8 @@ const API = (function(){
       if(resp.ok){
         return resp.json();
       }else{
+        //console.log(resp.json());
+        
         return Promise.reject(new Error(resp.statusText));//todo change to resp obj
       }
     
@@ -29,9 +31,7 @@ const API = (function(){
     doFetch('POST',serializeJson(book)).then(obj=>{
       console.log('new book added to server');
       getAllBooks();
-      //collection.addBook(book);
     }).catch((e)=>{
-      //todo probroly handle errors
       handleErrors(e);
     });
 
@@ -43,8 +43,9 @@ const API = (function(){
     }).catch(e=>handleErrors(e));
   }
   function handleErrors(err){
-    //todo implent complete error handling
-    alert(err.message);
+    collection.error = err;
+    DOM.render();
+    
   }
   function serializeJson(formData){
     let o ={};
@@ -62,7 +63,7 @@ const API = (function(){
      
       DOM.render();
     }).catch((e)=>{
-      alert(e.message);//TODO handle errors properly
+      handleErrors(e);
     });
   }
 

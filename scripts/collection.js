@@ -8,6 +8,7 @@ const collection = (function(){
   let focused = null;//set to the book that has focus
   let adding = false;
   let minStars = 0;
+  let error = null;
   /**
    * 
    * @param {string} ID

@@ -11,21 +11,22 @@
 <body>
   <main class="container">
     <!-----------MODAL-------------------------------------------->
-    <div class = "modal" > 
+    <div class = "modal hidden" > 
     <div class="modal-content">
           <div class="modal-header">
             <span class="close">&times;</span>
             <h2>Add a Book</h2>
           </div>
           <div class="modal-body">
+            <div class=js-error></div>
             <form class="js-inputForm" id="inputForm" autocomplete="off">
               <div>
                 <label for="title">Title</label><br>
-                <input type="text" id="titleInput" name="title" form="inputForm" required min="1">
+                <input type="text" id="titleInput" name="title" form="inputForm" min="1" required>
               </div>
               <div>
                 <label for="url">Url</label><br>
-                <input type="url" id="urlInput" name="url" required min="5">
+                <input type="url" id="urlInput" name="url"  min="5" required>
               </div>
               <div>
                   <label for="desc">Description:</label><br>
@@ -36,15 +37,17 @@
                   <input name="rating" type="range" step="1" max="5" min="0" value="4"/>
               </div>
               <div class="row">
-                <button class="col-3" type="reset">Cancel</button><button class="col-3" type="submit">Submit</button>
+                <button class="col-3-sm" type="reset">Cancel</button><button class="col-3-sm" type="submit">Submit</button>
               </div>
             </form>
           </div>
         </div>
         </div>
         <!--- END MODAL------------------------------------->
+        <div class="js-error">
+        </div>
     <div class="row">
-      <form class="col-6">
+      <form class="col-6 filter">
         <label for="filter">Filter By</label>
         <select name="filter" id="filter">
           <option value="0">All</option>
@@ -55,17 +58,10 @@
           <option value="5">5 stars</option>
         </select>
       </form>
-      <button class="js-addBtn col-6">Add a book</button>
+      <button class="js-addBtn col-6-sm">Add a book</button>
     </div>
  <div class="js-list row">
-    <li class="js-list-item">
-      <div class="col-12">
-      <strong>name of book<button class="js-remove">remove</button></strong>
-      <p><rating:5></rating:5></p>
-      <article class="hidden">Description:<br><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac enim facilisis, condimentum augue at, aliquet ex. Etiam at velit eu lectus sagittis ultrices eu sit amet dolor. Integer hendrerit bibendum tortor blandit fringilla.</p></article>
-      <a href="#">link to book website</a>
-      </div>
-    </li>
+   <div id="placeHolder" class="col-12 error" style="text-align: center;margin-top:25%">Looking For Books...</div>
   </div>
  </main>
 </body>

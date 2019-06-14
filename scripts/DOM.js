@@ -19,8 +19,9 @@ const DOM =(function(){
   function handleAddBtn(){
     $('.js-addBtn').click((e)=>{
       collection.adding = true;
+      render();
       // to be removed later
-      $('.modal').toggle();
+      //$('.modal').toggle();
       //---->
       console.log(collection.adding);
     });
@@ -30,18 +31,15 @@ const DOM =(function(){
     $('.js-inputForm').submit((e)=>{
       e.preventDefault();
       let data = new FormData(document.getElementById('inputForm'));
-      API.addNewBook(data);
-      /*     let inputs=[];
-      for(let x of data.entries()){inputs.push(x);}
-      console.log(inputs);
-      collection.addBook({inputs[0][1],inputs[3][1],inputs[1][1]}); */
+      API.addNewBook(data);//need a way to tell DOM that it was successfull
       $('.js-inputForm')[0].reset();
       render();
       console.log('form Submited');
     });
     //also going to handle cancel event
     $('.js-inputForm').on('reset',(e)=>{
-      $('.modal').toggle();
+      collection.adding = false;
+      render();
     });
 
   }
@@ -67,13 +65,43 @@ const DOM =(function(){
     handleRemoveBtn();
     handleExpandBookMark();
     handleFormSubmit();
-    handleAddBtn();  
+    handleAddBtn();
+    handleErrorExit();  
   }
   function render(){
     //draw everything in the collection
     console.log('rendering');
     let html = collection.books.map(book=>createHTML(book));
+    //---------------->draw all books
+    let errorHtml = createErrorHtml();
+    ///-----if there is a pending error, draw it
+    if(collection.adding){ 
+      $('.modal').removeClass('hidden');
+    }else{
+      $('.modal').addClass('hidden');
+    }
+    //---------------> draw modal
+    $('.js-error').html(errorHtml);
     $('.js-list').html(html);
+  }
+  function createErrorHtml(){
+    if(collection.error){
+      collection.adding =true;
+      let result = `
+      <div class="error col-3">
+      <h3>${collection.error}</h3><button class="errorBtn">&times</button>
+      <p>The Server has responded with a ${collection.error}. Please ensure internet connectivty then try again</p>
+      </div>`;
+      collection.error = null;
+      return result;
+    }else{
+      return '';
+    }
+  }
+  function handleErrorExit(){
+    $('.js-error').on('click','.errorBtn',(e)=>{
+      render();
+    });
   }
   function createHTML(book){
     if(book.hidden){
